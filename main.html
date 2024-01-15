@@ -20,5 +20,13 @@ layout: page
     reader.addEventListener('load', () => loaded(reader))
     reader.readAsDataURL(photo.files[0]);
   }
+from gradio_client import Client
+
+client = Client("https://mansearchingforameaning-test3.hf.space/--replicas/zcbuf/")
+result = client.predict(
+		"https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png",	# filepath  in 'img' Image component
+		api_name="/predict"
+)
+print(result)
   photo.addEventListener('input', read);
 </script>
